@@ -4,19 +4,18 @@
  */
 
 #include <cstdlib>
-#include <iostream>
 #include <map>
 #include <string>
 #include <vector>
 
 #include "file_system.h"
-#include "utils.h"
+#include "utils/loggers.h"
 
 int main(int argc, char *argv[]) {
   const auto has_arguments = argc > 1;
 
   if (!has_arguments) {
-    error("No file given.");
+    error("No file name was given.");
     return EXIT_FAILURE;
   }
 
@@ -26,7 +25,6 @@ int main(int argc, char *argv[]) {
   // TODO: Move option parsing to another module.
   auto options = std::map<std::string, bool>();
   options["verbose"] = false;
-  options["force"] = false;
 
   auto files = std::vector<std::string>();
 
@@ -35,22 +33,20 @@ int main(int argc, char *argv[]) {
     argument = argv[i];
     if (argument == "-v" || argument == "--verbose") {
       options["verbose"] = true;
-    } else if (argument == "-f" || argument == "--force") {
-      options["force"] = true;
     } else {
       files.push_back(argument);
     }
   }
 
   if (files.empty()) {
-    error("No file given.");
+    error("No file name was given.");
     return EXIT_FAILURE;
   }
 
   // Finally, create specified files.
   for (auto file : files) {
-    const bool succeed = fs::create_file(file, options);
-    if (!succeed) return !succeed;
+    const bool failure = fs::create_file(file, options);
+    if (failure) return failure;
   }
 
   return EXIT_SUCCESS;

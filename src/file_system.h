@@ -11,7 +11,10 @@
 #include "types.h"
 
 namespace fs {
-[[nodiscard]] bool create_file(const std::string &file_name, Options &options);
+
+[[nodiscard]] bool create_file(const std::string &file_name,
+                               const Options &options);
+
 }  // namespace fs
 
 #endif  // SRC_FILE_SYSTEM_H_

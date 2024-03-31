@@ -1,3 +1,8 @@
+/**
+ * Copyright 2024 Ahnaf Al Nafis
+ * SPDX-License-Identifier: MIT
+ */
+
 #ifndef SRC_TYPES_H_
 #define SRC_TYPES_H_
 

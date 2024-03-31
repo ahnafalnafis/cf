@@ -7,34 +7,27 @@
 
 #include <cstdlib>
 #include <filesystem>
+#include <format>
 #include <fstream>
 #include <iostream>
 
 #include "types.h"
-#include "utils.h"
+#include "utils/loggers.h"
 
-// TODO: Refactor this function
 [[nodiscard]] bool fs::create_file(const std::string &file_name,
-                                   Options &options) {
+                                   const Options &options) {
   const auto file_exists = std::filesystem::exists(file_name);
 
   if (file_exists) {
-    if (!options["force"]) {
-      std::cout << "File '" << file_name << "' already exists" << std::endl;
-      return EXIT_FAILURE;
-    }
+    error(std::format("File '{}' already exists!", file_name));
 
-    warn("File already exists and is being overwritten");
+    return EXIT_FAILURE;
   }
 
   std::ofstream file(file_name);
 
-  if (options["verbose"]) {
-    if (file_exists && options["force"]) {
-      std::cout << "Overwritten file '" << file_name << "'" << std::endl;
-    } else {
-      std::cout << "Created file '" << file_name << "'" << std::endl;
-    }
+  if (options.at("verbose")) {
+    std::cout << std::format("Created file '{}'", file_name) << std::endl;
   }
 
   file.close();
