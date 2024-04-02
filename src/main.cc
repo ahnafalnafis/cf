@@ -13,6 +13,14 @@
 #include "utils/fs.h"
 #include "utils/io.h"
 
+void show_help_message() {
+  print("Usage: cf FILE_NAME [OPTIONS...]");
+  print("");
+  print("Options:");
+  print("    --verbose, -v        To show message.");
+  print("");
+}
+
 int main(int argc, char *argv[]) {
   auto argument = std::string{""};
   auto files = std::vector<std::string>{};
@@ -26,8 +34,13 @@ int main(int argc, char *argv[]) {
     if (argument == "-v" || argument == "--verbose") {
       options["verbose"] = true;
 
+    } else if (argument == "-h" || argument == "--help") {
+      show_help_message();
+      return EXIT_SUCCESS;
+
     } else if (argument.starts_with("-")) {
       print(std::format("Argument '{}' is not valid option.", argument));
+      print("Type -h for more info.");
       return EXIT_FAILURE;
 
     } else {
