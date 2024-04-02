@@ -1,5 +1,5 @@
 /**
- * Copyright 2024 Ahnaf Al Nafis
+ * Copyright (C) 2024 Ahnaf Al Nafis
  * SPDX-License-Identifier: MIT
  */
 
@@ -7,8 +7,8 @@
 #define SRC_TYPES_H_
 
 #include <map>
-#include <string>
+#include <string_view>
 
-using Options = std::map<std::string, bool>;
+using Options = std::map<std::string_view, bool>;
 
 #endif  // SRC_TYPES_H_

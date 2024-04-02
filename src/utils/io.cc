@@ -3,17 +3,17 @@
  * SPDX-License-Identifier: MIT
  */
 
-#include "utils/loggers.h"
+#include "utils/io.h"
 
 #include <iostream>
-#include <string>
+#include <string_view>
 
-// TODO: Add colors in console messages.
+void print(std::string_view message) { std::cout << message << std::endl; }
 
-void warn(const std::string &message) {
+void warn(std::string_view message) {
   std::cout << "WARNING: " << message << std::endl;
 }
 
-void error(const std::string &message) {
+void error(std::string_view message) {
   std::cout << "ERROR: " << message << std::endl;
 }

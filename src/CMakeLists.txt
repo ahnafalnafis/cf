@@ -1,2 +1,2 @@
-target_sources(${EXECUTABLE_NAME} PRIVATE main.cc file_system.cc)
+target_sources(${EXECUTABLE_NAME} PRIVATE main.cc)
 add_subdirectory(utils)
