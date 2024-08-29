@@ -14,6 +14,6 @@
 namespace fs {
 [[nodiscard]] bool create_files(const std::vector<std::string> &files,
                                 const Options &options);
-}  // namespace fs
+} // namespace fs
 
-#endif  // SRC_UTILS_FS_H_
+#endif // SRC_UTILS_FS_H_

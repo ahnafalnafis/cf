@@ -17,7 +17,7 @@ void show_help_message() {
   print("Usage: cf FILE_NAME [OPTIONS...]");
   print("");
   print("Options:");
-  print("    --verbose, -v        To show message.");
+  print("    --verbose, -v        Explain what is being done.");
   print("");
 }
 

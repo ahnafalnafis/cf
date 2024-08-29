@@ -36,16 +36,15 @@ using std::format;
     std::filesystem::create_directories(parent_path);
 
     if (options.at("verbose")) {
-      print(format("Created parent directories '{}'", parent_path));
+      print(format("Created parent directories: '{}'", parent_path));
     }
 
     std::ofstream file(file_name);
+    file.close();
 
     if (options.at("verbose")) {
-      print(format("Created file '{}'", file_name));
+      print(format("Created file: '{}'", file_name));
     }
-
-    file.close();
   }
 
   return EXIT_SUCCESS;
