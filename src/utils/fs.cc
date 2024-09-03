@@ -33,10 +33,12 @@ using std::format;
             .parent_path()
             .string();
 
-    std::filesystem::create_directories(parent_path);
+    if (!std::filesystem::exists(parent_path)) {
+      std::filesystem::create_directories(parent_path);
 
-    if (options.at("verbose")) {
-      print(format("Created parent directories: '{}'", parent_path));
+      if (options.at("verbose")) {
+        print(format("Created parent directories: '{}'", parent_path));
+      }
     }
 
     std::ofstream file(file_name);
