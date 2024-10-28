@@ -7,13 +7,13 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS True)
 
 # Project:
 project(
-  cf
+  mkfile
   VERSION 0.0.1
   LANGUAGES CXX)
 
 # Declarations:
 set(SOURCE_DIR ${PROJECT_SOURCE_DIR}/src)
-set(EXECUTABLE_NAME cf)
+set(EXECUTABLE_NAME ${PROJECT_NAME})
 
 # Executable:
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
