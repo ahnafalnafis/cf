@@ -29,9 +29,7 @@ using std::format;
     }
 
     const auto parent_path =
-        std::filesystem::path(std::filesystem::absolute(file_name))
-            .parent_path()
-            .string();
+        std::filesystem::path(file_name).parent_path().string();
 
     if (!std::filesystem::exists(parent_path)) {
       std::filesystem::create_directories(parent_path);

@@ -1,6 +1,6 @@
 # `mkfile`
 
-`mkfile` short for "Create file" is a cli tool to create files.
+`mkfile` short for "Make/Create file" is a cli tool to create files.
 
 ## Features and limitations
 
