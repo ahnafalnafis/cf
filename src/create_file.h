@@ -16,6 +16,7 @@
  */
 struct Options {
   bool verbose;
+  bool create_parents;
 };
 
 void create_file(const std::vector<std::string_view> &files,
