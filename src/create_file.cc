@@ -30,11 +30,17 @@ void create_file(const std::vector<std::string_view> &files,
                        .string());
 
     if (!std::filesystem::exists(parent_path)) {
-      std::filesystem::create_directories(parent_path);
+      if (options.create_parents) {
+        std::filesystem::create_directories(parent_path);
 
-      if (options.verbose) {
-        std::cout << std::format("Created parent directories '{}'", parent_path)
-                  << std::endl;
+        if (options.verbose) {
+          std::cout << std::format("Created parent directories '{}'",
+                                   parent_path)
+                    << std::endl;
+        }
+      } else {
+        std::cout << std::format("Parent paths don't exist!") << std::endl;
+        return;
       }
     }
 
